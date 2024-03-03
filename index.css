@@ -40,10 +40,42 @@ html {
   position: relative;
   background-color: white;
   font-size: 8vw;
+  margin: 1vw;
   padding: 1vw;
-  font-weight: bold;
-  text-align: center;
-  mix-blend-mode: screen;
+}
+
+.u-hover-sparkle {
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: all 1000ms;
+  }
+
+  &::before {
+    border-top: 1vw solid #9f2042;
+    border-bottom: 1vw solid #9f2042;
+    transform: scale3d(0, 1, 1);
+    box-sizing: border-box;
+  }
+
+  &::after {
+    border-left: 1vw solid #9f2042;
+    border-right: 1vw solid #9f2042;
+    transform: scale3d(1, 0, 1);
+
+    box-sizing: border-box;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    transform: scale3d(1, 1, 1);
+    transition: all 1000ms;
+  }
 }
 
 .grid-container-cell2 {
